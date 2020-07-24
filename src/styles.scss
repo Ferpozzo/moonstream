@@ -1,1 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-green {
+    background-color: #377d6a;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    &:focus{
+        border: none;
+    }
+}
+span {
+    position: relative;
+    display: inline-block;
+    min-width: 25%;
+    margin: 20px 10px;
+}
+.gate {
+    display: inline-block;
+    width: 300px;
+    padding: 10px 0 10px 15px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: #377d6a;
+    background: #efefef;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    text-indent: 20%; // Arbitrary.
+    transition: all 0.3s ease-in-out;
+
+    &::-webkit-input-placeholder {
+        color: #efefef;
+        text-indent: 0;
+        font-weight: 300;
+    }
+
+    + label {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px 15px;
+        text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
+        background: #7ab893;
+        transition: all 0.4s ease-in-out;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        transform-origin: left bottom;
+        z-index: 99;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+            background: #377d6a;
+            transform-origin: left bottom;
+            transition: all 0.4s ease-in-out;
+            pointer-events: none;
+            z-index: -1;
+        }
+        &:before {
+            background: rgba(3, 36, 41, 0.2);
+            z-index: -2;
+            right: 20%;
+        }
+    }
+}
+
+.gate:focus,
+.gate:active {
+    color: #377d6a;
+    text-indent: 0;
+    background: #fff;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1px solid;
+    border-color: #377d6a;
+
+    &::-webkit-input-placeholder {
+        color: #aaa;
+    }
+    + label {
+        transform: rotate(-66deg);
+        border-radius: 3px;
+
+        &:before {
+            transform: rotate(10deg);
+        }
+    }
+}
